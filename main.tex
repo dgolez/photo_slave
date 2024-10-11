@@ -1,0 +1,127 @@
+\documentclass[aps,prb,twocolumn,floats,superscriptaddress,epsfig]{revtex4-1}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsbsy}
+\usepackage{amsmath}
+%\usepackage{mathabx}
+%\usepackage{xcolor}
+\usepackage{epsfig}
+\usepackage{color}
+%\usepackage{soul}
+\usepackage{float}
+%\usepackage[english, polish]{babel}
+%\usepackage{polski}
+%\usepackage[lf,enc=t1]{berenis}
+%\usepackage{subfig}
+\usepackage[colorlinks,linktocpage,bookmarks=false,citecolor=blue,linkcolor=red,urlcolor=blue]{hyperref}
+\newcommand{\wt}{\widetilde}
+\newcommand{\ing}{\includegraphics}
+\newcommand{\bib}{\bibitem}
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\al}{\alpha}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ep}{\epsilon}
+\newcommand{\ga}{\gamma}
+\newcommand{\ka}{\kappa}
+\newcommand{\lamb}{\lambda}
+\newcommand{\si}{\sigma}
+\newcommand{\ta}{\theta}
+\newcommand{\om}{\omega}
+\newcommand{\calC}{{\cal C}}
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calG}{{\cal G}}
+\newcommand{\w}{\omega}
+\newcommand{\bra}[1]{\langle#1|}
+\newcommand{\ket}[1]{|#1\rangle}
+\newcommand{\braket}[2]{\langle #1|#2\rangle}
+\newcommand{\non}{\nonumber}
+\newcommand{\noi}{\noindent}
+% \newcommand{\dg}{\textcolor{red}{#1}}
+\newcommand{\blue}{\textcolor{blue}}
+%\newcommand{\redbar}[1]{\textcolor{red}{\st{#1}}} % requires package soul
+\newcommand{\Tr}{{\rm Tr}}
+\newcommand{\mean}[1]{\langle #1 \rangle}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\red}{\color{red}}
+
+\newcommand{\tr}{\text{Tr}}
+\newcommand{\ave}[1]{\langle #1 \rangle}
+
+\newcommand{\new}[1]{\textcolor{blue}{\textsf{{#1}}}}
+\newcommand{\ZL}[1]{\textcolor{red}{\textsf{{#1}}}}
+\newcommand{\dg}[1]{\textcolor{red}{{#1}}}
+
+\graphicspath{{./figures/}}
+
+\begin{document}
+
+\title{Slave particle approach to photo-doped Mott insulators}
+
+\author{Denis Gole{\v z}}
+\affiliation{Jo{\v z}ef Stefan Institute, SI-1000, Ljubljana, Slovenia}
+\affiliation{Faculty of Mathematics and Physics, University of Ljubljana, 1000
+Ljubljana, Slovenia}
+
+%\date{\today}
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+
+\section{Model and method}
+\label{hamil}
+We consider the Fermi Hubbard model
+\begin{eqnarray}\label{eq::Hubbard}
+ H &=& -t \sum_{ \ave{i,j} , \sigma} ( c^{\dagger}_{i \sigma} c_{j \sigma} + c^{\dagger}_{j \sigma } c_{i \sigma } ) + U \sum_{j} n_{ j \uparrow } n_{ j \downarrow},   
+\end{eqnarray}
+where sum $\ave{i,j}$ runs over nearest neighbour pairs of sites, $\sigma$ is the spin index denoting either up or down spin, $t$ is the hopping amplitude and $U$ the interaction strength.
+
+While chemically doped systems are  stable, the photo-doped situation for the large gap Mott insulator is only metastable with exponentially long lifetime~\cite{Strohmaier2010,Sensarma2010a,Zala2013PRL,Eckstein2011thermalization}. To treat the two scenarios on the same footing, we will perform a canonical Schrieffer-Wolf transformation which perturbatively decouples sectors with different number of effectively charged holons and doublons and obtain a $t$-$J$ Hamiltonian~\cite{MacDonald1988}  and its generalized version for photo-doped state~\cite{Li2020,murakami2022,Zala2013PRL}. In the case of the photo-doped system, by neglecting higher-order recombination terms, we approximate the metastable state with an equilibrium state. 
+
+We denote the onsite interaction term in Eq.~\eqref{eq::Hubbard} with $H_0=U\sum_j n_{j\uparrow} n_{j\downarrow}$, and split the kinetic part into terms that preserves the number of doublon-holon (DH) pairs $T_0$,  that increases the number of DH pairs by one $T_1$, and that decreases the number of DH pairs by one $T_{-1}$. Following Ref.~\onlinecite{MacDonald1988}, the generator of the unitary transformation $S$ is chosen such that it transforms out the processes that change the number of DH pairs on the order $O(t)$ and retains them on the higher $O(t^2/U)$ level of expansion. %\textit{after truncation at the lowest order of $t^2/U$ expansion}. 
+Hence, we choose $S=(T_1 - T_{-1})/U$ such that $T_1$ and $T_{-1}$ are cancelled (in Eq. ~\eqref{sw1}),
+\begin{eqnarray}
+\label{sw1}
+H^{\prime}&=& e^{iS} H e^{-iS} \\
+&=& H_0 + T_0 + T_1 + T_{-1} + [ i S, H] + \dots \nonumber\\
+&=& H_0 + T_0 + \frac{1}{U} \big( [ T_1 , T_{-1} ] + [T_0 , T_{-1}] + [ T_1 , T_0 ] \big) + \dots \nonumber
+\end{eqnarray}
+In the limit $U\gg t_{\parallel},t_{\perp}$, we retain terms of the order $O(t_{\parallel}^2/U)$, $O(t_{\perp}^2/U$)  and neglect all higher orders, such that the effective Hamiltonian preserves the number of DH pairs \\
+\begin{eqnarray}\label{eq::Heff}
+H_{\text{eff}}=& \sum\limits_{\alpha\in\{\parallel,\perp\}} \left[ H_{\eta}^{\alpha}+H_{S}^{\alpha}+H_{H,hop}^{\alpha}+H_{D,hop}^{\alpha}\right]+H_0\nonumber.
+\end{eqnarray}
+When written out explicitly, the effective Hamiltonian has the following terms\cite{murakami2022}
+\begin{eqnarray}
+H_{S}&=&  J_{S} \sum_{\langle i, j\rangle } \left(\boldsymbol{S}_{i } \cdot  \boldsymbol{S}_{j} -\frac{1}{4} \delta_{1,n_{i }  n_{j }}\right) ,\nonumber \\  
+H_{\eta}&=&  -J_{\eta} \sum_{\langle i,j\rangle}
+\left(\boldsymbol{\eta}_{i} \cdot \boldsymbol{\eta}_{j } - \frac{1}{4}(1-\delta_{1,n_{i }})(1-\delta_{1,n_{j}})\right), \label{eq:H_eta}\nonumber\\
+H_{D,hop}&=& -t \sum_{\langle i,j\rangle , \sigma} n_{i \bar{\sigma} } ( c^{\dagger}_{i \sigma } c_{j \sigma } + h.c. ) n_{j \bar{\sigma} },\label{eq:Dhop}\nonumber\\ 
+H_{H,hop}&=& -t \sum_{\langle i,j\rangle , \sigma} \bar{n}_{i \bar{\sigma} } ( c^{\dagger}_{i \sigma } c_{j \sigma } + h.c. ) \bar{n}_{j \bar{\sigma} }, \label{eq:Hhop} \\ \nonumber
+% H_{den} &=& \frac{1}{4}  \sum_{\langlei,j>, \sigma} ((J_{\parallel(\perp),\eta}(1-\delta_{1,n_{i }})(1-\delta_{1,n_{j}}))  \\ &-&  J_{\parallel(\perp),S} \delta_{1,n_{i }  n_{j }})\\ \nonumber 
+ \label{htj}
+\end{eqnarray}
+where $J_{S} = J_{\eta} = \frac{4t_\parallel^2}{U}$  are the spin/$\eta$ exchange coupling parameters.  The electron~(hole) density per spin is given by 
+$n_{i,\sigma}~(\bar{n}_{i,\sigma}=1-n_{i,\sigma})$, and $\bar{\sigma}$ is the complement of $\sigma$, i.e., if $\sigma$ denotes up spin then $\bar{\sigma}$ denotes down spin and vice versa. The $\eta$ operators in terms of the fermion creation and annihilation operators can be expressed as $\eta_i^{+}=\eta_i^x+ i \eta_i^y= e^{i\boldsymbol{r}_i\cdot\boldsymbol{\pi}} c_{i,\uparrow}^{\dagger}c_{i,\downarrow}^{\dagger}$, where $\boldsymbol{r}_i$ is the vector to the $i$th site and $\boldsymbol{\pi}=\{\pi, \pi, ...\}$ is a vector of the dimension of the system with entries $\pi$. The $z$ component of the pseudospin is $\eta_i^z=\frac{1}{2}(1-n_i)$, $\eta_i^- = (\eta_i^{+})^{\dagger}$,  and the spin operators are defined as, $ \boldsymbol{S}_i= \frac{1}{2} c_{i \alpha}^{\dagger} \boldsymbol{\sigma}_{\alpha \beta} c_{i \beta}$, where $\boldsymbol{\sigma} = \{\sigma^x,\sigma^y,\sigma^z\}$ are  the standard Pauli matrices.
+
+Different terms in the Hamiltonian have the following physical meanings:  $H_{S}$ is the spin interaction term, familiar from the standard t-J model; $H_{\eta}$ is the $\eta$-exchange term, which exchanges the position of a doublon and holon and causes the interaction between DH pair if they are on nearest neighbor sites; $H_{H,hop}$ and $H_{D,hop}$ represent hopping of holon and doublon conserving their number, respectively.  In the sectors with no doublon quasi-particle, $H_{\text{eff}}$ reduces to the standard t-J model. $H_0$ is the on-site Coulomb interaction and leads to unimportant energy shift between the chemical and photo-doped system. 
+
+% We should note that in the full expansion there appear also three site terms which are of two types: a) the holon/doublon correlated hopping terms of order $J$ which conserve the number of holon and doublon pairs and the analysis in Ref.~\onlinecite{murakami2022} showed that their effect is small in the dilute limit, b) recombination terms of order $J$ which we will for a moment suppress to mimic the metastable state by an equilibrium problem.
+
+As this description conserves the number of holon and doublons we can use simplified description for the photo-doped states. For finite, closed systems 
+we can fix the number of holons $H=\sum_i (1-n_{i\uparrow}) (1-n_{i\downarrow})$ and doublons $D=n_{i\uparrow}n_{i\downarrow}$ by hand and 
+calculate in each separate sector. For grand-canonical type of description we can use the idea of generalized Gibbs ensemble where we modify the density matrix as
+$\rho=e^{-\beta H +\mu N + \mu_1 H + \mu_2 D.}$ In other words, we arrive to an effective Hamiltonian which should be solved within the standard thermal formalism 
+$$H_{Gibbs}=H_{eff}+\mu N + \mu_1 H + \mu_2 D.$$
+
+
+\bibliography{Lib}
+
+
+\end{document}
